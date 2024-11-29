@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import vn.cache.services.SpringCacheService;
 
 @RestController
-@RequestMapping("/api/nekos")
+@RequestMapping("/api/spring-cache")
 public class SpringCacheController {
 
     @Autowired
