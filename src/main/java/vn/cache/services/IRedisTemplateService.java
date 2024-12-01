@@ -1,8 +1,10 @@
-package vn.cache.services.redistemplate;
+package vn.cache.services;
+
+import vn.cache.models.CatModel;
 
 public interface IRedisTemplateService {
 
-    public void save(String valueCache);
+    public void save(CatModel valueCache);
 
     public Object get(String key);
 

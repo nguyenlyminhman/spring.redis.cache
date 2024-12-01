@@ -2,7 +2,10 @@ package vn.cache.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import vn.cache.services.redistemplate.IRedisTemplateService;
+import vn.cache.models.CatModel;
+import vn.cache.services.IRedisTemplateService;
+
+import java.util.HashMap;
 
 @RestController
 @RequestMapping("/api/redis/cache/template")
@@ -12,8 +15,8 @@ public class RedisTemplateController {
     private IRedisTemplateService redisTemplateService;
 
     @PostMapping("/save")
-    public String save(@RequestBody String valueCache) {
-        redisTemplateService.save(valueCache);
+    public String save(@RequestBody CatModel catCache) {
+        redisTemplateService.save(catCache);
         return "Data saved successfully!";
     }
 

@@ -1,8 +1,9 @@
-package vn.cache.services.redistemplate;
+package vn.cache.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import vn.cache.models.CatModel;
 
 @Service
 public class RedisTemplateService implements IRedisTemplateService{
@@ -11,14 +12,14 @@ public class RedisTemplateService implements IRedisTemplateService{
     private RedisTemplate<String, Object> redisTemplate;
 
     @Override
-    public void save(String valueCache) {
-        String key = "your::key::here";
-        redisTemplate.opsForValue().set(key, valueCache);
+    public void save(CatModel catData) {
+        String key = "cat::" + catData.getId();
+        redisTemplate.opsForValue().set(key, catData);
     }
 
     @Override
-    public Object get(String key) {
-        return redisTemplate.opsForValue().get(key);
+    public CatModel get(String key) {
+        return (CatModel) redisTemplate.opsForValue().get(key);
     }
 
     @Override
