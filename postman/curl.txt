@@ -1,0 +1,15 @@
+curl --location 'http://localhost:8080/api/redis/cache/template/get?key=cat%3A%3A1'
+
+curl --location 'http://localhost:8080/api/redis/cache/template/save' \
+--header 'Content-Type: application/json' \
+--data '{
+    "id": "1",
+    "name": "Lac Lac",
+    "color": "yellow",
+    "address": {
+        "street": "Bui Van Ba",
+        "ward": "7th",
+        "province": "Q7",
+        "city": "HCMC"
+    }
+}'
